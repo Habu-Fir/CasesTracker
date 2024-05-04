@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import ProductCard from './Components/ProductCard';
 
 const page = () => {
-  return <ProductCard />;
+  return <p>Hello world</p>;
 };
 
 export default page;
