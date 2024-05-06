@@ -1,8 +1,13 @@
+import { Button } from '@radix-ui/themes';
 import Link from 'next/link';
 import React from 'react';
 
 const page = () => {
-  return <p>Hello world</p>;
+  return (
+    <div>
+      <Button>New Case</Button>
+    </div>
+  );
 };
 
 export default page;

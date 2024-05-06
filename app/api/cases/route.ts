@@ -16,6 +16,5 @@ export async function POST(request: NextRequest) {
   const newCase = await prisma.case.create({
     data: { title: body.title, description: body.description },
   });
-  console.log(newCase);
   return NextResponse.json(newCase, { status: 201 });
 }
