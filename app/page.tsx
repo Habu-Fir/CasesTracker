@@ -5,7 +5,9 @@ import React from 'react';
 const page = () => {
   return (
     <div>
-      <Button>New Case</Button>
+      <Button>
+        <Link href={'/cases/new'}>New Case</Link>
+      </Button>
     </div>
   );
 };
