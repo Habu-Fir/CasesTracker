@@ -1,6 +1,7 @@
 'use client';
-import { Button, TextArea, TextField } from '@radix-ui/themes';
-import React from 'react';
+import SimpleMDE from 'react-simplemde-editor';
+import 'easymde/dist/easymde.min.css';
+import { Button, TextField } from '@radix-ui/themes';
 
 const NewCasePage = () => {
   return (
@@ -10,7 +11,7 @@ const NewCasePage = () => {
         variant="soft"
         placeholder="Title of the case"
       />
-      <TextArea placeholder="Description of the case" />
+      <SimpleMDE placeholder="Description of the case" />
       <Button>Submit</Button>
     </div>
   );
