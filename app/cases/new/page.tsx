@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { createCaseSchema } from '@/app/validationSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import ErrorMessage from '@/app/componenet/ErrorMessage';
 
 type CaseForm = z.infer<typeof createCaseSchema>;
 
@@ -48,11 +49,12 @@ const NewCasePage = () => {
           placeholder="Title of the case"
           {...register('title')}
         />
-        {errors.title && (
+        <ErrorMessage>
           <Text color="red" as="p">
-            {errors.title.message}
+            {errors.title?.message}
           </Text>
-        )}
+        </ErrorMessage>
+
         <Controller
           name="description"
           control={control}
@@ -60,11 +62,11 @@ const NewCasePage = () => {
             <SimpleMDE placeholder="Description" {...field} />
           )}
         />
-        {errors.description && (
+        <ErrorMessage>
           <Text color="red" as="p">
-            {errors.description.message}
+            {errors.description?.message}
           </Text>
-        )}
+        </ErrorMessage>
 
         <Button>Submit</Button>
       </form>
