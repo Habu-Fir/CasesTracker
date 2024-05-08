@@ -10,6 +10,7 @@ import { createCaseSchema } from '@/app/validationSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import ErrorMessage from '@/app/componenet/ErrorMessage';
+import Spinner from '@/app/componenet/Spinner';
 
 type CaseForm = z.infer<typeof createCaseSchema>;
 
@@ -24,6 +25,7 @@ const NewCasePage = () => {
   });
   const router = useRouter();
   const [error, setError] = useState('');
+  const [isSubmitting, setSubmitting] = useState(false);
 
   return (
     <div className="max-w-xl">
@@ -36,9 +38,11 @@ const NewCasePage = () => {
         className=" space-y-4"
         onSubmit={handleSubmit(async (data) => {
           try {
+            setSubmitting(true);
             await axios.post('/api/cases', data);
             router.push('/cases');
           } catch (error) {
+            setSubmitting(false);
             setError('Un Expected error occur!');
           }
         })}
@@ -68,7 +72,9 @@ const NewCasePage = () => {
           </Text>
         </ErrorMessage>
 
-        <Button>Submit</Button>
+        <Button disabled={isSubmitting}>
+          Submit {isSubmitting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
