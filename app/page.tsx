@@ -1,15 +1,7 @@
-import { Button } from '@radix-ui/themes';
-import Link from 'next/link';
 import React from 'react';
 
-const page = () => {
-  return (
-    <div>
-      <Button>
-        <Link href={'/cases/new'}>New Case</Link>
-      </Button>
-    </div>
-  );
+const Dashboard = () => {
+  return <div>This is Dashboard</div>;
 };
 
-export default page;
+export default Dashboard;
